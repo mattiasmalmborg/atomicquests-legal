@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AtomicQuests — Logging in...</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #0f0f0f;
+      color: #fff;
+    }
+    p { font-size: 1.1rem; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <p>Returning to AtomicQuests...</p>
+  <script>
+    // Forward the full hash/search fragment back to the app via custom scheme.
+    // Supabase sends tokens in the URL hash after OAuth redirect.
+    var hash = window.location.hash || "";
+    var search = window.location.search || "";
+    var appUrl = "atomicquests://auth-callback" + search + hash;
+    window.location.replace(appUrl);
+  </script>
+</body>
+</html>
